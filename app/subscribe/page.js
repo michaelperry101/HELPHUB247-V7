@@ -1,21 +1,23 @@
-export default function Subscribe() {
+// app/subscribe/page.js
+"use client";
+import { useState } from "react";
+
+export default function SubscribePage() {
+  const [status, setStatus] = useState(null);
+
   return (
-    <div className="container py-10">
-      <div className="max-w-xl mx-auto border rounded-xl p-6 border-zinc-200 dark:border-zinc-800">
-        <h1 className="text-2xl font-bold">Subscribe</h1>
-        <p className="mt-2 text-zinc-600 dark:text-zinc-400">Helphub247 — £9.99/month, cancel anytime.</p>
-        <ul className="list-disc ml-6 mt-4 text-sm">
-          <li>Unlimited chats with Carys</li>
-          <li>Voice (British accent), file & image support</li>
-          <li>Priority support</li>
-        </ul>
-        <button
-          onClick={()=>alert("Demo only. Connect Stripe to go live.")}
-          className="mt-6 w-full py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700">
-          Subscribe (Demo)
-        </button>
-        <p className="mt-3 text-xs text-zinc-500">When you're ready, replace this button with Stripe Checkout.</p>
-      </div>
+    <div className="flex flex-col items-center justify-center h-screen p-6">
+      <h1 className="text-3xl font-bold mb-4">Subscribe to HelpHub247</h1>
+      <p className="mb-6 text-gray-500 text-center max-w-lg">
+        Unlock premium AI assistance with Carys — unlimited chats, image & file uploads, and more.
+      </p>
+      <button
+        onClick={() => setStatus("Demo only: Replace with live Stripe/PayPal")}
+        className="px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
+      >
+        Subscribe Now
+      </button>
+      {status && <p className="mt-4 text-sm text-gray-400">{status}</p>}
     </div>
   );
-}
+      }
